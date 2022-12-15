@@ -13,3 +13,20 @@ var weatherContent = $("#weather-content");
 
 var APIkey = "a0af21eae700b0b06e138c8932d7db83";
 
+var cityList = [];
+
+var currentDate = dayjs().format('L');
+$("#current-date").text("(" + currentDate + ")");
+
+initializeHostory();
+showClear();
+
+$(document).on("submit", function(){
+    event.preventDefault();
+
+    var searchValue = searchCityInput.val().trim();
+
+    currentConditionsRequest(searchValue)
+    searchHistoryList(searchValue);
+    searchCityInput.val("");
+});
