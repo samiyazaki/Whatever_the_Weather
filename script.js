@@ -21,7 +21,7 @@ $("#current-date").text("(" + currentDate + ")");
 initializeHostory();
 showClear();
 
-$(document).on("submit", function(){
+$(document).on("submit", function(event){
     event.preventDefault();
 
     var searchValue = searchCityInput.val().trim();
