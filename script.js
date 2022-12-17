@@ -84,7 +84,15 @@ function currentConditionsRequest(searchValue) {
                 var forecastIcon = $("<img>");
                 var forecastTemp = $("<p class ='card-text mb-0'>");
                 var forecastHumidity = $("<p class ='card-text mb-0'>");
+                
+                $('#five-day-forecast').append(forecastCol);
+                forecastCol.append(forecastCard);
+                forecastCard.append(forecastCardBoyd);
 
+                forecastCardBody.append(forecastDate);
+                forecastCardBody.append(forecastIcon);
+                forecastCardBody.append(forecastTemp);
+                forecast
                 forecastIcon.attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
                 forecastIcon.attr("alt", response.list[i].weather[0].main);
                 forecastDate.text(forecastDateString);
@@ -118,3 +126,28 @@ function searchHistory(searchValue) {
         }
     }
 }
+ function listArray() {
+    searchHistoryList.empty();
+    cityList.forEach(function(city) {
+        var searchHistoryItem = $('li class ="list-group-item city-btn">');
+        searchHistoryItem.attr("data-value", city);
+        searchHistoryItem.text(city);
+        searchHistoryList.prepend(searchHistoryItem);
+    });
+    localStorage.setItem("cities", JSON.stringify(cityList));
+    console.log("cities");
+ }
+
+ function initializeHistory() {
+    if (localStorage.getItem("cities")) {
+        cityList= JSON.parse(localStorage.getItem("cities"));
+        var lastIndex = cityList.length - 1;
+
+        listArray();
+
+        if (cityList.length !== 0) {
+            currentConditionsRequest(cityList[lastIndex]);
+            weatherContent.removeClass("hide");
+        }
+    }
+ }
