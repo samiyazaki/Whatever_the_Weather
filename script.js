@@ -92,9 +92,9 @@ function currentConditionsRequest(searchValue) {
         $("#current-date").text("(" + currentDate + ")");
         currentCity.append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />" )
         currentTemp.text(response.main.temp);
-        currentTemp.append("&deg;F");
-        currentHumidity.text(response.main.humidity + "%");
-        currentWindSpeed.text(response.wind.speed + "MPH");
+        currentTemp.append(" " + "&deg; + F");
+        currentHumidity.text(response.main.humidity + " %");
+        currentWindSpeed.text(response.wind.speed + " MPH");
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
