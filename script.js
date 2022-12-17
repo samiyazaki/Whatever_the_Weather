@@ -13,14 +13,13 @@ var weatherContent = $("#weather-content");
 var APIkey = "a0af21eae700b0b06e138c8932d7db83";
 
 var cityList = [];
-var localizedFormat = require('dayjs/plugin/localizedFormat')
-dayjs.extend(localizedFormat)
+/*var localizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.extend(localizedFormat)*/
 
 var currentDate = dayjs().format('L');
 $("#current-date").text("(" + currentDate + ")");
 
 initializeHistory();
-showClear();
 
 $(document).on("submit", function(){
     event.preventDefault();
