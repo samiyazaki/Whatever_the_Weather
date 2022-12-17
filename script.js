@@ -19,7 +19,7 @@ var APIkey = "a0af21eae700b0b06e138c8932d7db83";
 var cityList = [];
 /*var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)*/
-var currentDate = dayjs().format('MMM/DD/YYYY');
+var currentDate = dayjs().format('MM/DD/YYYY');
 $("#current-date").text("(" + currentDate + ")");
 
 
@@ -98,7 +98,7 @@ function currentConditionsRequest(searchValue) {
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-        
+
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + APIkey + "&lat=" + lat +  "&lon=" + lon;
 
        
@@ -110,7 +110,7 @@ function currentConditionsRequest(searchValue) {
             $('#five-day-forecast').empty();
             for (var i = 1; i< response.list.length; i+=8) {
                 
-                var forecastDateString = dayjs(response.list[i].dt_txt).format("MMM/DD/YYYY");
+                var forecastDateString = dayjs(response.list[i].dt_txt).format("MM/DD/YYYY");
                 console.log(forecastDateString);
 
                 var forecastCol = $("<div class='col-12 col-md-6 col-lg forecast-day mb-3'>");
@@ -120,7 +120,7 @@ function currentConditionsRequest(searchValue) {
                 var forecastIcon = $("<img>");
                 var forecastTemp = $("<p class ='card-text mb-0'>");
                 var forecastHumidity = $("<p class ='card-text mb-0'>");
-                
+                var forecastWindSpeed = $("<p class = 'card-text mb-0'>");
                 
                 $('#five-day-forecast').append(forecastCol);
                 forecastCol.append(forecastCard);
@@ -130,6 +130,7 @@ function currentConditionsRequest(searchValue) {
                 forecastCardBody.append(forecastIcon);
                 forecastCardBody.append(forecastTemp);
                 forecastCardBody.append(forecastHumidity);
+                forecastCardBody.append(forecastWindSpeed);
 
                 forecastIcon.attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
                 forecastIcon.attr("alt", response.list[i].weather[0].main)
@@ -140,9 +141,10 @@ function currentConditionsRequest(searchValue) {
                 forecastHumidity.text(response.list[i].main.humidity);
                 forecastHumidity.prepend("Humidity: ");
                 forecastHumidity.append("%");
-            
-            
-            
+                forecastWindSpeed.text(response.list[i].wind.speed);
+                forecastWindSpeed.prepend("Wind Speed: ");
+                forecastWindSpeed.append("MPH");
+        
             
             
             }
