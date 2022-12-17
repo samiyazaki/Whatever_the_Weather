@@ -98,20 +98,7 @@ function currentConditionsRequest(searchValue) {
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        var countryCode = response.sys.country;
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" + APIkey + "&lat=" + lat +  "&lon=" + lon;
 
        

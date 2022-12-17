@@ -15,10 +15,11 @@
         </script>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="bg-image" style="background-image:url('/assets/pexels-johannes-plenio-1118873.jpg'); height: 100vh">
+        <div class="container-fluid"></div>
             <div class="row navbar">
                 <div class="col-12 text-center">
-                    <h1 class="navbar-brand pb-0 px-0">Weather Dashboard</h1>
+                    <h1 class="navbar-brand pb-0 px-0 text-primary">Weather Dashboard</h1>
                 </div>
             </div>
             <div class = "row content-row">
@@ -42,7 +43,7 @@
                 <div id="weather-content" class="col-12 col-md-9 hide">
                     <div class ="row">
                         <div class ="col-12">
-                            <div class="city-info border rounded my-3 px-3 py-3">
+                            <div class="city-info border rounded my-3 px-3 py-3 bg-light">
                                 <h2 id="current-city">City Info<small class="text-muted" id="current-date"></small></h2>
                                 <p class="mb-0">Temp:<span id="current-temp"></span></p>
                                 <p class="mb-0">Humidity:<span id="current-humidity"></span></p>
@@ -51,7 +52,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 bg-light border rounded my-3 px-3 py-3">
                             <h3>5-Day Forecast</h3>
                         </div>
                     </div>
@@ -74,5 +75,6 @@
         <script src="/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js">
         </script>
+        </div>
     </body>
 </html>
