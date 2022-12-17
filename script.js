@@ -14,11 +14,10 @@ var APIkey = "a0af21eae700b0b06e138c8932d7db83";
 
 var cityList = [];
 
-var currentDate = dayjs().format();
+var currentDate = dayjs().format('L LT');
 $("#current-date").text("(" + currentDate + ")");
 
 initializeHistory();
-showClear();
 
 $(document).on("submit", function(){
     event.preventDefault();
