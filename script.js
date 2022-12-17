@@ -14,7 +14,7 @@ var APIkey = "a0af21eae700b0b06e138c8932d7db83";
 
 var cityList = [];
 
-var currentDate = dayjs().format('L');
+var currentDate = dayjs().format();
 $("#current-date").text("(" + currentDate + ")");
 
 initializeHistory();
@@ -92,7 +92,8 @@ function currentConditionsRequest(searchValue) {
                 forecastCardBody.append(forecastDate);
                 forecastCardBody.append(forecastIcon);
                 forecastCardBody.append(forecastTemp);
-                forecast
+                forecastCardBody.append(forecastHumidity);
+
                 forecastIcon.attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
                 forecastIcon.attr("alt", response.list[i].weather[0].main);
                 forecastDate.text(forecastDateString);
