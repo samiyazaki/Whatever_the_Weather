@@ -15,7 +15,7 @@
         </script>
     </head>
     <body>
-        <div class="bg-image" style="background-image:url('./assets/pexels-johannes-plenio-1118873.jpg'); height: 100vh">
+        <div class="bg-image" style="background-image:url('./assets/pexels-johannes-plenio-1118873.jpg'); height: 100vh"> <!--add background image -->
         <div class="container-fluid"></div>
             <div class="row navbar">
                 <div class="col-12 bg-light text-center">
@@ -27,7 +27,7 @@
                     <h5> City Search</h5>
                     <form>
                         <div class="form-group input group">
-                            <input type="text" class = "form-control" id="search-city" placeholder="Please type a city name here">
+                            <input type="text" class = "form-control" id="search-city" placeholder="Please type a city name here"><!--the form for city input-->
                             <div class ="input-group-append p-3 d-grid gap-2">
                                 <button class = "btn btn-info" type="button" id="search-city-button">Search
                                 </button>
@@ -43,11 +43,11 @@
                 <div id="weather-content" class="col-12 col-md-9 text-center hide">
                     <div class ="row">
                         <div class ="col-12">
-                            <div class="city-info border rounded my-3 px-3 py-3 bg-light">
+                            <div class="city-info border rounded my-3 px-3 py-3 bg-light"> <!--Displays current data for selected city-->
                                 <h2 id="current-city">City Info<small class="text-muted" id="current-date"></small></h2>
-                                <p class="mb-0">Temp:<span id="current-temp"></span></p>
-                                <p class="mb-0">Humidity:<span id="current-humidity"></span></p>
-                                <p class="mb-0">Wind Speed:<span id="current-wind-speed"></span></p>
+                                <p class="mb-0">Temp:  <span id="current-temp"></span></p>
+                                <p class="mb-0">Humidity:  <span id="current-humidity"></span></p>
+                                <p class="mb-0">Wind Speed:  <span id="current-wind-speed"></span></p>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div id="five-day-forecast" class="row">
                         <div class="col-2">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body"> <!--This is where the 5 day forecst data is created from the JavaScript-->
                                     <h5 class="card-title">Date </h5>
                                     <i class="fa fa-sun"></i>
                                     <p class ="card-text">Temp: </p>
