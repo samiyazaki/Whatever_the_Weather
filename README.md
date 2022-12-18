@@ -6,7 +6,8 @@
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=samiyazaki" alt="samiyazaki" /></a> </p>
 
 - 🔭 I'm currently working on [Whatever_the_Weather](https://github.com/samiyazaki/Whatever_the_Weather)
-
+<img src="/assets/Whatever the Weather.gif" alt = "GIF of the OpenWeatherMap API site that allows you to select cities and displays their 5 day forecast"></a>
+## 
 - 🌱 I’m currently learning **javaScript, CSS, HTML, Bootstrap, JQuery, APIs and Git commands**
 
 - 👨‍💻 All of my projects are available at [https://github.com/samiyazaki](https://github.com/samiyazaki)
