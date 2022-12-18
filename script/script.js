@@ -1,38 +1,38 @@
-//
-var searchHistoryList = $("#search-history-list");
-var searchCityInput = $("#search-city");
+//These are my variables. There are many like it, but this one is mine.
+var searchHerstoryList = $("#search-history-list");
+var searchCity = $("#search-city");
 var searchCityButton = $("#search-city-button");
 var currentCity = $("#current-city");
 var currentTemp = $("#current-temp");
 var currentHumidity = $("#current-humidity");
 var currentWindSpeed = $("#current-wind-speed");
 var weatherContent = $("#weather-content");
-var APIkey = "a0af21eae700b0b06e138c8932d7db83";
+var APIkey = "a0af21eae700b0b06e138c8932d7db83"; //API key variable to avoid retyping it every time? Dude on Youtube told me to try it and I am fairly whelmed.
 var cityList = [];
 /*var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)*/
-var currentDate = dayjs().format("dddd, MM/DD/YYYY");
+var currentDate = dayjs().format("dddd, MM/DD/YYYY"); //dayjs to help us find the time and utilize data for the 5 day forecast
 
 $("#current-date").text("(" + currentDate + ")");
-initializeHistory();
+initializeHistory(); // loads the localStorage cities so you can see them on the side
 
-$(document).on("submit", function () {
+$(document).on("submit", function (event) { //The 
   event.preventDefault();
-  var searchValue = searchCityInput.val().trim();
+  var searchValue = searchCity.val().trim();
   currentConditionsRequest(searchValue);
   searchHistory(searchValue);
-  searchCityInput.val("");
+  searchCity.val("");
 });
 
 searchCityButton.on("click", function (event) {
   event.preventDefault();
-  var searchValue = searchCityInput.val().trim();
+  var searchValue = searchCity.val().trim();
   currentConditionsRequest(searchValue);
   searchHistory(searchValue);
-  searchCityInput.val("");
+  searchCity.val("");
 });
 
-searchHistoryList.on("click", "li.city-btn", function (event) {
+searchHerstoryList.on("click", "li.city-btn", function (event) {
   var value = $(this).data("value");
   currentConditionsRequest(value);
   searchHistory(value);
@@ -151,13 +151,13 @@ function searchHistory(searchValue) {
 }
 
 function listArray() {
-  searchHistoryList.empty();
+  searchHerstoryList.empty();
 
   cityList.forEach(function (city) {
     var searchHistoryItem = $('<li class ="list-group-item city-btn">');
     searchHistoryItem.attr("data-value", city);
     searchHistoryItem.text(city);
-    searchHistoryList.prepend(searchHistoryItem);
+    searchHerstoryList.prepend(searchHistoryItem);
   });
 
   localStorage.setItem("cities", JSON.stringify(cityList));
