@@ -16,20 +16,20 @@ var currentDate = dayjs().format("dddd, MM/DD/YYYY"); //dayjs to help us find th
 $("#current-date").text("(" + currentDate + ")");
 initializeHistory(); // loads the localStorage cities so you can see them on the side
 
-$(document).on("submit", function (event) { //calls for a submit event
-  event.preventDefault(); //Don't want the page to reload
+searchCityButton.on("click", function (event) { //click the search button to start the process
+  event.preventDefault();//Don't want the page to reload
   var searchValue = searchCity.val().trim();//setting the searchvalue to the input, removing extra spaces so I don't get errors or multiples of the same location
-  currentConditionsRequest(searchValue); // For the AJA request to openWeather API
-  searchHistory(searchValue); // Adding the value to the history to store it for my glowy list
-  searchCity.val(""); //sets
+  currentConditionsRequest(searchValue);// For the AJAX request to openWeather API
+  searchHistory(searchValue);// Adding the value to the history to store it for my glowy list
+  searchCity.val("");
 });
 
-searchCityButton.on("click", function (event) {
-  event.preventDefault();
+$(document).on("submit", function (event) { //Want to go faster? The same function as above works on hitting the enter key
+  event.preventDefault(); 
   var searchValue = searchCity.val().trim();
-  currentConditionsRequest(searchValue);
-  searchHistory(searchValue);
-  searchCity.val("");
+  currentConditionsRequest(searchValue); 
+  searchHistory(searchValue); 
+  searchCity.val(""); 
 });
 
 searchHerstoryList.on("click", "li.city-btn", function (event) {
