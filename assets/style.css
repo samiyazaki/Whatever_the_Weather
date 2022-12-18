@@ -12,5 +12,5 @@
 
 }
 .row {
-    --bs-gutter-x: 0rem; 
+    --bs-gutter-x: 0rem !important; 
 }
