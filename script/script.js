@@ -129,17 +129,16 @@ function currentConditionsRequest(searchValue) { //Here's where we make an AJAX 
   });
 }
 
-function searchHistory(searchValue) {
+function searchHistory(searchValue) { // searching the prior items added to the list and stored in local
   if (searchValue) {
-    if (cityList.indexOf(searchValue) === -1) {
+    if (cityList.indexOf(searchValue) === -1) { // if it's not there, add it in
       cityList.push(searchValue);
 
       listArray();
-      clearHistoryButton.removeClass("hide");
       weatherContent.removeClass("hide");
     } else {
       var removeIndex = cityList.indexOf(searchValue);
-      cityList.splice(removeIndex, 1);
+      cityList.splice(removeIndex, 1); // if it's there, 
 
       cityList.push(searchValue);
 
@@ -149,7 +148,7 @@ function searchHistory(searchValue) {
 }
 
 function listArray() {
-  searchHerstoryList.empty();
+  searchHerstoryList.empty(); // clears the search list
 
   cityList.forEach(function (city) {
     var searchHistoryItem = $('<li class ="list-group-item city-btn">');
@@ -158,7 +157,7 @@ function listArray() {
     searchHerstoryList.prepend(searchHistoryItem);
   });
 
-  localStorage.setItem("cities", JSON.stringify(cityList));
+  localStorage.setItem("cities", JSON.stringify(cityList)); // set it to a JSON string so it persists beyond page reloads
 }
 
 function initializeHistory() {
