@@ -11,7 +11,7 @@ var APIkey = "a0af21eae700b0b06e138c8932d7db83";
 var cityList = [];
 /*var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)*/
-var currentDate = dayjs().format("MM/DD/YYYY");
+var currentDate = dayjs().format("dddd, MM/DD/YYYY");
 
 $("#current-date").text("(" + currentDate + ")");
 initializeHistory();
@@ -84,7 +84,7 @@ function currentConditionsRequest(searchValue) {
       $("#five-day-forecast").empty();
       for (var i = 1; i < response.list.length; i += 8) {
         var forecastDateString = dayjs(response.list[i].dt_txt).format(
-          "MM/DD/YYYY"
+          "dddd, MM/DD/YYYY"
         );
         console.log(forecastDateString);
 
@@ -119,10 +119,10 @@ function currentConditionsRequest(searchValue) {
         forecastDate.text(forecastDateString);
         forecastTemp.text(response.list[i].main.temp);
         forecastTemp.prepend("Temp: ");
-        forecastTemp.append("&deg;F");
+        forecastTemp.append(" &deg;F");
         forecastHumidity.text(response.list[i].main.humidity);
         forecastHumidity.prepend("Humidity: ");
-        forecastHumidity.append("%");
+        forecastHumidity.append(" %");
         forecastWindSpeed.text(response.list[i].wind.speed);
         forecastWindSpeed.prepend("Wind Speed: ");
         forecastWindSpeed.append("MPH");
