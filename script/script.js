@@ -7,7 +7,6 @@ var currentTemp = $("#current-temp");
 var currentHumidity = $("#current-humidity");
 var currentWindSpeed = $("#current-wind-speed");
 var weatherContent = $("#weather-content");
-var APIkey = "a0af21eae700b0b06e138c8932d7db83"; //API key variable to avoid retyping it every time? Dude on Youtube told me to try it and I am fairly whelmed.
 var cityList = [];
 /*var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)*/
@@ -16,7 +15,7 @@ var currentDate = dayjs().format("dddd, MM/DD/YYYY"); //dayjs to help us find th
 $("#current-date").text("(" + currentDate + ")");
 initializeHistory(); // loads the localStorage cities so you can see them on the side
 
-searchCityButton.on("click", function (event) { //click the search button to start the process
+searchCityButton.on("click", function () { //click the search button to start the process
   event.preventDefault();//Don't want the page to reload
   var searchValue = searchCity.val().trim();//setting the searchvalue to the input, removing extra spaces so I don't get errors or multiples of the same location
   currentConditionsRequest(searchValue);// For the AJAX request to openWeather API
@@ -24,7 +23,7 @@ searchCityButton.on("click", function (event) { //click the search button to sta
   searchCity.val("");
 });
 
-$(document).on("submit", function (event) { //Want to go faster? The same function as above works on hitting the enter key
+$(document).on("submit", function () { //Want to go faster? The same function as above works on hitting the enter key
   event.preventDefault(); 
   var searchValue = searchCity.val().trim();
   currentConditionsRequest(searchValue); 
@@ -32,22 +31,21 @@ $(document).on("submit", function (event) { //Want to go faster? The same functi
   searchCity.val(""); 
 });
 
-searchHerstoryList.on("click", "li.city-btn", function (event) {
-  var value = $(this).data("value");
+searchHerstoryList.on("click", "li.city-btn", function () { // When one of the city buttons are clicked in the "Herstory" list, run the function
+  var value = $(this).data("value"); //sets the search value to the stored item value
   currentConditionsRequest(value);
   searchHistory(value);
 });
 
-function currentConditionsRequest(searchValue) {
-  var queryURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchValue +
-    "&units=imperial&appid=" +
-    APIkey;
+function currentConditionsRequest(searchValue) { //Here's where we make an AJAX request to the OpenWeatherMap API to retrieve current conditions in the city input which is set as searchValue
+  var queryURL = 
+    "https://api.openweathermap.org/data/2.5/weather?q=" +//pulling from the secure site
+    searchValue + //utilizing the input value item 
+    "&units=imperial&appid=a0af21eae700b0b06e138c8932d7db83"; // Sets the measurements to "colonizer" instead of the metric system because I'm from America and we are contrarians.
 
-  $.ajax({
-    url: queryURL,
-    method: "GET",
+  $.ajax({ //AJAX call; not to the inferior greek prince of Salamis, but an Asynchronous JavaScript And XML call. To send and receive data in multiple formats.
+    url: queryURL, //using the variable URL we created with my API key
+    method: "GET", 
   }).then(function (response) {
     console.log(response);
     currentCity.text(response.name);
@@ -69,8 +67,8 @@ function currentConditionsRequest(searchValue) {
     var lon = response.coord.lon;
 
     var forecastURL =
-      "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=" +
-      APIkey +
+      "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=a0af21eae700b0b06e138c8932d7db83" +
+
       "&lat=" +
       lat +
       "&lon=" +
