@@ -101,7 +101,7 @@ function currentConditionsRequest(searchValue) { //Here's where we make an AJAX 
         forecastCol.append(forecastCard);
         forecastCard.append(forecastCardBody);
 
-        forecastCardBody.append(forecastDate);
+        forecastCardBody.append(forecastDate); //appending each of the cards with data drawn from the variables
         forecastCardBody.append(forecastIcon);
         forecastCardBody.append(forecastTemp);
         forecastCardBody.append(forecastHumidity);
@@ -115,9 +115,9 @@ function currentConditionsRequest(searchValue) { //Here's where we make an AJAX 
         );
         forecastIcon.attr("alt", get.list[i].weather[0].main);
         forecastDate.text(forecastDateString);
-        forecastTemp.text(get.list[i].main.temp);
-        forecastTemp.prepend("Temp: ");
-        forecastTemp.append(" &deg;F");
+        forecastTemp.text(get.list[i].main.temp); // get the data from the site
+        forecastTemp.prepend("Temp: "); // set the text before
+        forecastTemp.append(" &deg;F"); // set the symbol after
         forecastHumidity.text(get.list[i].main.humidity);
         forecastHumidity.prepend("Humidity: ");
         forecastHumidity.append(" %");
