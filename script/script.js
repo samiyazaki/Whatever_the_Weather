@@ -157,19 +157,19 @@ function listArray() {
     searchHerstoryList.prepend(searchHistoryItem);
   });
 
-  localStorage.setItem("cities", JSON.stringify(cityList)); // set it to a JSON string so it persists beyond page reloads
+  localStorage.setItem("cities", JSON.stringify(cityList)); // set input items to "cities" and setting it to a JSON string so it persists beyond page reloads
 }
 
 function initializeHistory() {
-  if (localStorage.getItem("cities")) {
-    cityList = JSON.parse(localStorage.getItem("cities"));
+  if (localStorage.getItem("cities")) { // searches for local storage items called "cities" 
+    cityList = JSON.parse(localStorage.getItem("cities")); // gets items labeled "cities" from local storage
     var lastIndex = cityList.length - 1;
 
     listArray();
 
-    if (cityList.length !== 0) {
+    if (cityList.length !== 0) { // if there is anything in the list...
       currentConditionsRequest(cityList[lastIndex]);
-      weatherContent.removeClass("hide");
+      weatherContent.removeClass("hide"); // stop hiding the list
     }
   }
 }
