@@ -7,7 +7,11 @@
 
 - 🔭 I'm currently working on [Whatever_the_Weather](https://github.com/samiyazaki/Whatever_the_Weather)
 <img src="/assets/Whatever the Weather.gif" alt = "GIF of the OpenWeatherMap API site that allows you to select cities and displays their 5 day forecast"></a>
-## 
+## This is a website that utilizes OpenWeatherMap API data to present information to the user based on their own inputs. The primary functionality of the website is based around AJAX calls to the OWM API to collect data, store it in variables and then create HTML elements that display the information.
+## Furthermore, the user's choices are stored in localStorage and are displayed in a list below the search function enabling the user to reselect any previously entered item to redisplay the data. 
+## The user can search for any city input and I enabled both search by click and search by user pressing the enter key to provide more fluid interactivity.
+## The page is dynamically responsive so changing the size allows the cards to move inline .
+## I added a glow function but I was not able to finish some of the CSS styling that would add the extra oomph to the design.
 - 🌱 I’m currently learning **javaScript, CSS, HTML, Bootstrap, JQuery, APIs and Git commands**
 
 - 👨‍💻 All of my projects are available at [https://github.com/samiyazaki](https://github.com/samiyazaki)
